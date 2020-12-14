@@ -1,36 +1,37 @@
-
-class Javascript {
-    constructor(name) {
+class Language
+ {
+    constructor(name) 
+    {
         this.name = name
-        this.type = "Javascript"
+        console.log("Language name " + this.name);
+    }
+    
+}
+class Python extends Language {
+    constructor(name, founderName) {
+        super(name)
+        this.founderName = founderName
+        console.log(" and Devloped by " + this.founderName);
     }
 }
-class Python {
-    constructor(name) {
-        this.name = name;
-        this.type = "Python"
-    }
-}
-class Java {
-    constructor(name) {
-        this.name = name;
-        this.type = "Java"
+class Java extends Language {
+    constructor(name, founderName) {
+        super(name)
+        this.founderName = founderName
+        console.log(" and Devloped by " + this.founderName);
     }
 }
 class LanguagesFactory {
-    create(name, type) {
+    create(name, type, founderName) {
         switch (type) {
             case 1:
-                return new Javascript(name);
-                break;
+                return new Python(name, founderName);
+                
             case 2:
-                return new Python(name);
-                break;
-            case 3:
-                return new Java(name);
-                break;
+                return new Java(name, founderName);
+                
             default:
-                console.log("I don't have a knowledge of any Language");
+                console.log("Invalid Choice");
                 return null;
         }
     }
